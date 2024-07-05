@@ -1,0 +1,139 @@
+---
+import ButtonPrimary from "./ButtonPrimary.astro";
+import menus from "./MenuList";
+---
+
+<footer
+  class="min-h-[400px] bg-blue-50 px-5 pt-10 flex flex-col md:flex-row gap-5"
+>
+  <section
+    class="flex flex-col gap-7 min-w-96 border-b border-slate-300 pb-10 md:pb-0 md:border-none"
+  >
+    <a href="/">
+      <img
+        src="assets/SJO-logo-horizontal-color.svg"
+        loading="lazy"
+        alt="Main logo of Sandy Jaya Utama"
+        class="w-56"
+      />
+    </a>
+    <h2 class="text-5xl font-thin leading-tight text-blue-950">
+      Industrial Pump, <br />Mechanical & Electrical
+    </h2>
+    <ButtonPrimary text="Contact via WA" link="/" />
+  </section>
+
+  <section
+    class="flex-1 flex flex-col gap-5 md:flex-col items-end justify-between"
+  >
+    <div
+      class="flex flex-col gap-5 md:flex-row w-full justify-end max-w-screen-lg"
+    >
+      <div class="w-full max-w-96">
+        <p class="font-medium mb-2">Office</p>
+        <ul>
+          <li>
+            <a
+              class="link-primary"
+              href="https://maps.app.goo.gl/jxcpp2aYMHP9SK5m6"
+              target="_blank"
+              >Komplek Harapan Baru Taman Bunga <br />Blok A5 / 23-24,
+              Harjamukti,
+              <br />Cimanggis, Depok
+              <br />16956</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="w-full max-w-96">
+        <ul>
+          <p class="font-medium mb-2">Call</p>
+
+          <li>
+            <a class="link-primary tabular-nums" href="tel:+622187757068"
+              >+62 21873 1057
+            </a>
+          </li>
+          <li>
+            <a class="link-primary tabular-nums" href="tel:+622187757068"
+              >+62 21873 1531
+            </a>
+          </li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="w-full max-w-96">
+        <p class="font-medium mb-2">Links</p>
+        <ul>
+          {
+            menus.map((menu) => {
+              return (
+                <li>
+                  <a class="link-primary" href={menu.link}>
+                    {menu.menu}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="w-full pt-5 border-t border-slate-300 max-w-screen-lg">
+      <p class="font-medium mb-2">Social Media</p>
+      <ul class="flex gap-5">
+        <li>
+          <a href="https://instagram.com" target="_blank">
+            <div>
+              <svg
+                class="hover:fill-brand-sea-blue"
+                width="24"
+                height="24"
+                viewBox="0 0 18 18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Icon link to Instagram</title>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0 5C0 2.23858 2.23858 0 5 0H13C15.7614 0 18 2.23858 18 5V13C18 15.7614 15.7614 18 13 18H5C2.23858 18 0 15.7614 0 13V5ZM5 2C3.34315 2 2 3.34315 2 5V13C2 14.6569 3.34315 16 5 16H13C14.6569 16 16 14.6569 16 13V5C16 3.34315 14.6569 2 13 2H5ZM12.5968 4.21448C12.5968 3.66219 13.0445 3.21448 13.5968 3.21448H13.6068C14.1591 3.21448 14.6068 3.66219 14.6068 4.21448C14.6068 4.76676 14.1591 5.21448 13.6068 5.21448H13.5968C13.0445 5.21448 12.5968 4.76676 12.5968 4.21448ZM9 6C7.34315 6 6 7.34315 6 9C6 10.6569 7.34315 12 9 12C10.6569 12 12 10.6569 12 9C12 7.34315 10.6569 6 9 6ZM4 9C4 6.23858 6.23858 4 9 4C11.7614 4 14 6.23858 14 9C14 11.7614 11.7614 14 9 14C6.23858 14 4 11.7614 4 9Z"
+                ></path>
+              </svg>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com" target="_blank">
+            <div>
+              <svg
+                class="hover:fill-brand-sea-blue"
+                width="24"
+                height="24"
+                viewBox="0 0 18 18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Icon link to LinkedIn</title>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M8.51093 4.8302V6.52791C8.86639 5.98522 9.35631 5.54458 9.93264 5.2492C10.509 4.95383 11.1519 4.81387 11.7984 4.84305C15.2533 4.84305 16 7.00318 16 9.81307V15.5345H12.8V10.4628C12.8 9.25323 12.5557 7.69682 10.672 7.69682C8.8448 7.69682 8.53333 9.01346 8.53333 10.3729V15.5345H5.34293V4.8302H8.51093Z"
+                ></path>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3.2 2.1402C3.2 2.45777 3.10616 2.7682 2.93035 3.03225C2.75454 3.2963 2.50466 3.5021 2.21229 3.62363C1.91993 3.74515 1.59823 3.77695 1.28786 3.715C0.977487 3.65304 0.692394 3.50012 0.46863 3.27557C0.244866 3.05101 0.0924806 2.76491 0.0307443 2.45344C-0.0309921 2.14198 0.000693258 1.81914 0.121793 1.52574C0.242894 1.23235 0.44797 0.981578 0.711088 0.805147C0.974207 0.628716 1.28355 0.534546 1.6 0.534546C2.02435 0.534546 2.43131 0.703712 2.73137 1.00483C3.03143 1.30595 3.2 1.71435 3.2 2.1402Z"
+                ></path>
+                <path d="M3.2 4.84305H1.01706e-06V15.5345H3.2V4.84305Z"></path>
+              </svg>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <p class="text-xs text-slate-500 p-2">
+      2024 © Sandy Jaya Utama. All rights reserved
+    </p>
+  </section>
+</footer>

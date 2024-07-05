@@ -1,0 +1,133 @@
+---
+import menus from "./MenuList";
+import ButtonPrimary from "./ButtonPrimary.astro";
+---
+
+<style>
+  .hamburger {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hamburger div {
+    background-color: white;
+    height: 2px;
+    width: 40px;
+    rotate: 0deg;
+    transition:
+      transform 150ms ease-in-out,
+      opacity 50ms linear;
+  }
+
+  .close div:nth-of-type(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .close div:nth-of-type(2) {
+    opacity: 0;
+  }
+  .close div:nth-of-type(3) {
+    transform: rotate(-45deg) translate(9px, -9px);
+  }
+
+  .menu-toggle {
+    height: 0;
+    overflow: hidden;
+    transition: all 350ms ease-in-out;
+  }
+  .menu-toggle.open {
+    opacity: 1;
+    height: 100svh;
+  }
+
+  .menu-item {
+    opacity: 0;
+    transition: opacity 350ms ease-in 650ms;
+  }
+  .menu-item.open {
+    opacity: 1;
+  }
+</style>
+
+<nav
+  class="bg-brand-sea-blue md:bg-opacity-0 flex items-center justify-between w-full fixed z-50"
+>
+  <a href="/">
+    <div class="logo bg-brand-sea-blue flex p-5 rounded-br-3xl">
+      <img
+        src="/assets/SJU-logo-light.svg"
+        alt="Logo Sandy Jaya Utama"
+        class="pr-3 border-r border-white h-10"
+      />
+      <p class="text-[10px] text-white pl-3 leading-3">
+        Industrial Pump<br />Mechanical<br />& Electrical
+      </p>
+    </div>
+  </a>
+  <div class="hamburger p-5 flex md:hidden md:bg-red-300">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <ul
+    class="hidden md:flex justify-end items-center h-20 rounded-bl-3xl px-5 ml-5 gap-5 md:bg-white md:bg-opacity-95 flex-1"
+  >
+    {
+      menus.map((menu) => {
+        return (
+          <li class="group">
+            <a class="group-hover:text-brand-sea-blue " href={menu.link}>
+              {menu.menu}
+            </a>
+            <div class="h-[2px] transition-all w-0  group-hover:w-full bg-brand-sea-blue" />
+          </li>
+        );
+      })
+    }
+    <ButtonPrimary
+      text="Whatsapp"
+      link="whatsapp://send?phone=+6281292780439"
+    />
+  </ul>
+
+  <ul
+    id="menu"
+    class="absolute md:hidden h-svh bg-brand-sea-blue left-0 top-[72px] w-full menu-toggle"
+  >
+    {
+      menus.map((menu) => {
+        return (
+          <li class="menu-item text-white text-2xl font-thin px-4 py-5 mt-5 mb-5 border-b border-white border-opacity-10 overflow-hidden">
+            <a href={menu.link}>{menu.menu}</a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+
+<script>
+  const body = document.querySelector("body");
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector("#menu");
+  const menuItems = document.querySelectorAll(".menu-item");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("close");
+    menu.classList.toggle("open");
+
+    body.classList.toggle("h-svh");
+    body.classList.toggle("overflow-hidden");
+
+    menuItems.forEach((item) => {
+      item.classList.toggle("open");
+    });
+  });
+
+  menuItems.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log("clicked");
+    });
+  });
+</script>

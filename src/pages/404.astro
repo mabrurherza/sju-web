@@ -1,0 +1,28 @@
+---
+import MainLayout from "../layout/MainLayout.astro";
+const headcontent = {
+  title: "Error 404 | Halaman tidak ditemukan",
+  description:
+    "Halaman yang Anda tuju tidak ditemukan. Mohon kembali ke halaman depan",
+  keywords: "Penyedia Pompa Air Industri di Indonesia, Ebara, Grundfos",
+  canonical: "https://www.sandyjayautama.com",
+};
+---
+
+<MainLayout headcontent={headcontent}
+  ><main class="w-full min-h-[800px] bg-blue-900 grid place-items-center">
+    <div class="p-5 flex flex-col md:flex-row gap-5">
+      <img
+        src="assets/images/404-illustration.png"
+        alt="Illustrasi halaman 404"
+        class="max-w-60"
+      />
+      <p class="text-white text-xl">
+        Halaman yang Anda tuju tidak ada. <br />
+        <a href="/" class="underline hover:text-brand-sky-blue"
+          >Kembali ke halaman depan</a
+        >
+      </p>
+    </div>
+  </main>
+</MainLayout>

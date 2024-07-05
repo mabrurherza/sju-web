@@ -1,0 +1,12 @@
+---
+const { title, description, keywords, canonical } = Astro.props;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<link rel="canonical" href={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content="/assets/images/SJU-og-images.jpg" />
+<meta name="robots" content="index, follow" />
