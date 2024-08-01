@@ -1,7 +1,7 @@
 const menus = [
     {
-        menu: "About Us",
-        link: "/about-us",
+        menu: "About",
+        link: "/about",
     },
     // {
     //     menu: "Pump by Category",
@@ -15,7 +15,7 @@ const menus = [
     // },
     {
         menu: "Browse Product",
-        link: "/product",
+        link: "/products",
     },
     {
         menu: "Contact Us",

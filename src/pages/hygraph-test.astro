@@ -1,0 +1,46 @@
+<!-- ---
+import { GraphQLClient } from "graphql-request";
+
+const client = new GraphQLClient(
+  "https://ap-southeast-2.cdn.hygraph.com/content/clz7n7ot606fc07ujdv03qztl/master"
+);
+
+const query = `
+query MyQuery {
+  page(where: {slug: "portfolio"}) {
+    title
+    slug
+    section {
+      __typename
+      ... on Testimonial {
+        citationName
+        citationTitle
+        quote
+      }
+    }
+  }
+}
+`;
+
+const { page } = await client.request(query);
+
+console.log(page);
+---
+
+<h1>{page.title}</h1>
+<p>{page.slug}</p>
+
+<div>
+  {
+    page.section.map((sect) => {
+      return (
+        <div class="border p-2 border-slate-500 bg-slate-100">
+          <p>{sect.__typename}</p>
+          <p>{sect.citationName} </p>
+          <p>{sect.citationTitle}</p>
+          <p>{sect.quote}</p>
+        </div>
+      );
+    })
+  }
+</div> -->

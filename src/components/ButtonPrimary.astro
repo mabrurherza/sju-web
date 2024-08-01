@@ -4,7 +4,8 @@ const props = Astro.props;
 
 <a href={props.link}>
   <button
-    class="bg-brand-sea-blue hover:bg-blue-800 text-white text-lg px-6 py-3 rounded-md outline outline-4 outline-blue-100 relative overflow-hidden group"
+    id={props.customId}
+    class="bg-brand-sea-blue hover:bg-blue-800 text-white text-lg px-6 py-3 rounded-md outline outline-4 outline-blue-100 relative overflow-hidden group w-full"
   >
     <div
       class="absolute w-0 group-hover:w-full h-full bg-blue-950 left-0 top-0 transition-all z-0"

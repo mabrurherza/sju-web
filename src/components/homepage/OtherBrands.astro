@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+
+import LogoTsurumi from "/src/assets/logo/brands/logo-tsurumi.png";
+import LogoObl from "/src/assets/logo/brands/logo-obl.png";
+import LogoKoshin from "/src/assets/logo/brands/logo-koshin.png";
+import LogoSiemens from "/src/assets/logo/brands/logo-siemens.png";
+import LogoTeco from "/src/assets/logo/brands/logo-teco.png";
+import LogoWeg from "/src/assets/logo/brands/logo-weg.png";
+import LogoCmg from "/src/assets/logo/brands/logo-cmg.png";
+import LogoIsuzu from "/src/assets/logo/brands/logo-isuzu.png";
+import LogoFGWilson from "/src/assets/logo/brands/logo-fgwilson.png";
+---
+
+<section
+  class="px-5 md:px-10 py-0 pb-10 md:py-20 flex flex-col md:flex-row justify-between gap-5 md:gap-20"
+>
+  <div
+    class="flex flex-row md:flex-col gap-5 md:justify-between items-center md:items-start"
+  >
+    <h4 class="w-fit md:flex-grow-0">All Brands</h4>
+    <button
+      class="flex flex-1 md:flex-grow-0 justify-between items-center rounded-md p-1 pl-2 md:p-2 text-brand-sea-blue border-brand-sea-blue border w-full group hover:bg-blue-100"
+    >
+      <p>Browse all brands</p>
+      <div class="w-10 h-10 overflow-hidden relative">
+        <span
+          class="material-symbols-rounded text-3xl absolute transition-all ease-in-out group-hover:left-10 left-[5px] top-[2px]"
+        >
+          chevron_right
+        </span>
+        <span
+          class="material-symbols-rounded text-3xl absolute transition-all ease-in-out -left-[32px] group-hover:left-[5px] top-[2px]"
+        >
+          chevron_right
+        </span>
+      </div>
+    </button>
+  </div>
+  <div
+    class="flex flex-1 flex-wrap justify-between max-w-none md:max-w-[60%] gap-4"
+  >
+    <Image
+      src={LogoTsurumi}
+      class="max-w-20 md:max-w-44 w-full"
+      alt="Official logo of Tsurumi"
+    />
+    <Image
+      src={LogoObl}
+      class="max-w-20 md:max-w-44 w-full"
+      alt="Official logo of OBL"
+    />
+
+    <Image
+      src={LogoTeco}
+      class="max-w-20 md:max-w-44 w-full"
+      alt="Official logo of TECO"
+    />
+    <Image
+      src={LogoWeg}
+      class="max-w-20 md:max-w-44 w-full"
+      alt="Official logo of WEG"
+    />
+    <Image
+      src={LogoCmg}
+      class="max-w-20 md:max-w-44 w-full"
+      alt="Official logo of CMG"
+    />
+    <Image
+      src={LogoFGWilson}
+      class="max-w-20 md:max-w-44 w-full"
+      alt="Official logo of FG Wilson"
+    />
+    <Image
+      src={LogoKoshin}
+      class="max-w-20 md:max-w-44 w-full"
+      alt="Official logo of KOSHIN"
+    />
+    <Image
+      src={LogoSiemens}
+      class="max-w-20 md:max-w-44 w-full"
+      alt="Official logo of Siemens"
+    />
+    <Image
+      src={LogoIsuzu}
+      class="max-w-20 md:max-w-44 w-full"
+      alt="Official logo of ISUZU"
+    />
+  </div>
+</section>

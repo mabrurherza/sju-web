@@ -1,0 +1,21 @@
+---
+const { text, url } = Astro.props;
+---
+
+<button
+  class="hidden md:flex justify-between items-center rounded-md p-2 bg-brand-sea-blue text-white w-full mt-10 group-hover:bg-blue-900"
+>
+  <p>{text}</p>
+  <div class="w-10 h-10 overflow-hidden relative">
+    <span
+      class="material-symbols-rounded text-3xl absolute transition-once transition-all ease-in-out group-hover:left-10 left-[5px] top-[2px]"
+    >
+      chevron_right
+    </span>
+    <span
+      class="material-symbols-rounded text-3xl absolute transition-once transition-all ease-in-out -left-[32px] group-hover:left-[5px] top-[2px]"
+    >
+      chevron_right
+    </span>
+  </div>
+</button>

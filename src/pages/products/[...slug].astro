@@ -1,0 +1,26 @@
+---
+import MainLayout from "../../layout/MainLayout.astro";
+import ProductLayout from "../../layout/ProductLayout.astro";
+
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const productEntries = await getCollection("products");
+  return productEntries.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const { Content } = await product.render();
+
+const headcontent = {
+  title: `SJU • ${product.data.brand}: ${product.data.name}`,
+  description: `SJU menyediakan produk dari ${product.data.brand}: ${product.data.name}`,
+};
+---
+
+<MainLayout headcontent={headcontent}>
+  <Content />
+</MainLayout>

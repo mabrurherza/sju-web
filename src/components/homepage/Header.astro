@@ -1,0 +1,55 @@
+---
+import ButtonPrimary from "../ButtonPrimary.astro";
+import ButtonSecondary from "../ButtonSecondary.astro";
+---
+
+<header class="hero-container relative">
+  <section class="flex gap-4 flex-col">
+    <div class="px-5 md:px-10 pt-20 pb-0 xl:pb-20 flex flex-col gap-5">
+      <h1
+        class="text-4xl md:text-6xl leading-snug md:leading-snug text-blue-900 md:max-w-screen-md"
+      >
+        Spesialis Pengadaan Pompa Industri dan Mesin Diesel Sejak 1995
+      </h1>
+
+      <div class="flex flex-col md:flex-row gap-5 w-full">
+        <ButtonPrimary
+          text="Contact Us"
+          link="whatsapp://send?phone=+6287817002400"
+        />
+
+        <ButtonSecondary text="Browse our products" link="/products" />
+      </div>
+
+      <div class="rounded-md overflow-hidden xl:hidden">
+        <img
+          src="/assets/images/img-placeholder.jpeg"
+          alt="SJU header image"
+          class="aspect-video object-cover rounded-xl"
+        />
+      </div>
+    </div>
+
+    <div class="bg-blue-50 py-10 flex flex-col md:flex-row relative">
+      <div class="flex-1 px-5 md:px-10">
+        <p class="text-blue-900 max-w-screen-sm text-lg leading-loose">
+          Sandy Jaya Utama telah berpengalaman lebih dari 25 tahun dalam
+          menyediakan layanan lengkap di dalam industri pompa air. Mulai dari
+          penyediaan mesin pompa utama beserta suku cadangnya. Dari instalasi
+          awal hingga layanan purnajual: pemeliharaan dan perbaikan, untuk
+          memastikan pompa Anda selalu dalam kondisi terbaik.
+        </p>
+      </div>
+
+      <div
+        class="overflow-hidden hidden flex-1 xl:flex justify-end absolute right-0 -bottom-[1px] w-2/5"
+      >
+        <img
+          src="assets/images/img-placeholder.jpeg"
+          alt="SJU header image"
+          class="object-cover aspect-square rounded-tl-[120px]"
+        />
+      </div>
+    </div>
+  </section>
+</header>

@@ -1,0 +1,41 @@
+---
+const { text } = Astro.props;
+---
+
+<nav
+  aria-label="breadcrumb"
+  class="w-full bg-blue-50 border-b border-blue-100 flex items-center justify-center h-11 px-4"
+>
+  <ul class="w-full max-w-screen-xl flex gap-1 items-center">
+    <li>
+      <a href="/" class="flex h-full"
+        ><span class="material-symbols-rounded text-brand-sea-blue text-[20px]">
+          home
+        </span></a
+      >
+    </li>
+    <span class="material-symbols-rounded text-sm text-slate-500 h-full"
+      >chevron_right</span
+    >
+    <li>
+      <a href="/products" class="h-full text-[14px] text-brand-sea-blue"
+        >All products</a
+      >
+    </li>
+
+    {
+      text ? (
+        <>
+          <span class="material-symbols-rounded text-sm text-slate-500 h-full">
+            chevron_right
+          </span>
+          <li>
+            <span class="text-[14px] text-slate-700">{text}</span>
+          </li>
+        </>
+      ) : (
+        ""
+      )
+    }
+  </ul>
+</nav>

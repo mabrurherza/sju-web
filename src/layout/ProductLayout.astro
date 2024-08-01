@@ -1,0 +1,170 @@
+---
+const { frontmatter } = Astro.props;
+import Image from "astro/components/Image.astro";
+import { object } from "astro/zod";
+import SingleProductImage from "../components/SingleProductImage.astro";
+import MultiProductImages from "../components/MultiProductImages.astro";
+import Prose from "../components/Prose.astro";
+import Breadcrumb from "../components/product/Breadcrumb.astro";
+import ButtonPrimary from "../components/ButtonPrimary.astro";
+
+function getBrandLogo(brand) {
+  switch (brand) {
+    case "Grundfos":
+      return "/src/assets/logo/brands/logo-grundfos.png";
+    case "Ebara":
+      return "/src/assets/logo/brands/logo-ebara.png";
+    default:
+      return "/src/assets/logo/brands/logo-fallback.png"; // Fallback logo
+  }
+}
+
+console.log(frontmatter.images);
+---
+
+<style>
+  .accordion-content {
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .accordion-content {
+    &.show {
+      height: fit-content;
+      padding: 16px 0;
+      overflow: visible;
+    }
+  }
+</style>
+
+<Breadcrumb text={frontmatter.name} />
+
+<main id="heading">
+  <section class="max-w-screen-xl m-auto px-4 py-10">
+    <h1 class="text-3xl font-bold mb-10">{frontmatter.name}</h1>
+
+    <div class="flex flex-col md:flex-row gap-5 md:gap-10">
+      <div class="flex-1">
+        {
+          frontmatter.images.length === 1 ? (
+            <SingleProductImage
+              source={frontmatter.images}
+              alt={frontmatter.name}
+            />
+          ) : (
+            <MultiProductImages />
+          )
+        }
+      </div>
+      <div class="flex flex-col justify-between flex-1">
+        <div class="flex flex-col gap-5">
+          <Image
+            src={getBrandLogo(frontmatter.brand)}
+            alt={`Logo of ${frontmatter.brand}`}
+            width={120}
+            height={120}
+          />
+          <div class="flex flex-col md:flex-row-reverse justify-between">
+            <p
+              class="text-sm font-medium px-2 py-1 bg-blue-100 text-blue-800 w-fit rounded h-fit"
+            >
+              {frontmatter.category}
+            </p>
+
+            <h4 class="text-3xl" id="productName">{frontmatter.name}</h4>
+          </div>
+          <p>{frontmatter.description}</p>
+        </div>
+        <div class="flex flex-col gap-5 mt-10">
+          {
+            frontmatter.stock ? (
+              <div class="p-1 text-sm bg-emerald-50 border border-emerald-100 text-slate-500 rounded-sm w-fit">
+                Stock:{" "}
+                <span class="font-medium text-slate-950">
+                  Availability may varies.
+                </span>
+              </div>
+            ) : (
+              ""
+            )
+          }
+          <ButtonPrimary
+            text="Ask for price"
+            link="/"
+            customId="whatsappButton"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="bg-blue-50 bg-opacity-50 pt-5 pb-20 border-b border-slate-200 px-4"
+  >
+    <div class="max-w-screen-xl m-auto">
+      <div
+        class="accordion-button hover:bg-white cursor-pointer border-b border-slate-200 hover:border-opacity-0 rounded-lg w-full p-4 flex justify-between items-center"
+      >
+        <h4 class="w-fit">Details</h4>
+        <div class="w-10 h-10 relative">
+          <span
+            class="material-symbols-rounded absolute text-3xl rotate-[-45deg] -top-[10px] -right-[5px]"
+          >
+            chevron_right
+          </span>
+          <span
+            class="material-symbols-rounded absolute text-3xl rotate-[135deg] -left-[5px] -bottom-[10px]"
+          >
+            chevron_right
+          </span>
+        </div>
+      </div>
+      <article class="accordion-content relative">
+        <div class="sticky top-[100px] flex justify-end">
+          <a
+            href="#heading"
+            class="right-2 bg-white p-2 text-xs w-fit text-blue-800 rounded shadow-md"
+          >
+            Back to top
+          </a>
+        </div>
+        <slot />
+      </article>
+    </div>
+  </section>
+</main>
+
+<script>
+  document
+    .getElementById("whatsappButton")
+    .addEventListener("click", function () {
+      const phoneNumber = "+6287817002400";
+      const productPageUrl = window.location.href;
+      const productName = document.getElementById("productName").innerText;
+      const currentHour = new Date().getHours();
+      let greeting;
+
+      if (currentHour >= 0 && currentHour < 10) {
+        greeting = "Selamat pagi.";
+      } else if (currentHour >= 10 && currentHour < 15) {
+        greeting = "Selamat siang.";
+      } else if (currentHour >= 15 && currentHour < 17) {
+        greeting = "Selamat sore.";
+      } else {
+        greeting = "Selamat malam.";
+      }
+
+      const message = `${greeting} SJU. Saya ingin bertanya terkait produk ${productName} di halaman ini ${productPageUrl}`;
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+      window.open(whatsappUrl, "_blank");
+    });
+
+  const accordionButton = document.querySelector(".accordion-button");
+  const accordionContent = document.querySelector(".accordion-content");
+
+  accordionButton.addEventListener("click", () => {
+    accordionContent.classList.toggle("show");
+  });
+</script>

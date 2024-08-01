@@ -1,0 +1,53 @@
+---
+import MainLayout from "../../layout/MainLayout.astro";
+import Breadcrumb from "../../components/product/Breadcrumb.astro";
+import { getCollection, getEntry } from "astro:content";
+import ProductCard from "../../components/product/ProductCard.astro";
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+// Example: retrieve `src/content/blog/**`
+const allProducts = await getCollection("products");
+
+// Get a single entry from a collection.
+// Requires the name of the collection and either
+// the entry `slug` (content collections) or `id` (data collections)
+// Example: retrieve `src/content/authors/grace-hopper.json`
+// const graceHopperProfile = await getEntry('authors', 'grace-hopper');
+// console.log(allProducts);
+---
+
+<style>
+  .custom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+</style>
+
+<MainLayout>
+  <Breadcrumb />
+  <main>
+    <section
+      class="px-4 py-5 flex flex-col lg:flex-row gap-4 relative overflow-visible"
+    >
+      <div
+        class="flex-1 max-w-none md:max-w-[320px] bg-blue-50 rounded-lg h-fit sticky top-[94px] left-0"
+      >
+        <p class="font-medium text-lg p-4">Filter</p>
+      </div>
+      <div class="flex-1 custom-grid gap-4">
+        {
+          allProducts.map((p) => {
+            return (
+              <ProductCard
+                name={p.data.name}
+                image={p.data.images}
+                slug={p.slug}
+              />
+            );
+          })
+        }
+      </div>
+    </section>
+  </main>
+</MainLayout>

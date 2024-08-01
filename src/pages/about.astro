@@ -1,0 +1,34 @@
+---
+import MainLayout from "../layout/MainLayout.astro";
+const headcontent = {
+  title: "Tentang Sandy Jaya Utama",
+};
+---
+
+<MainLayout headcontent={headcontent}>
+  <main>
+    <header
+      class="px-5 md:px-10 py-10 min-h-96 text-blue-900 flex flex-col md:flex-row items-center gap-5"
+    >
+      <div class="flex flex-col gap-5 flex-1">
+        <h1 class="text-4xl">
+          Tentang <br />Sandy Jaya Utama
+        </h1>
+        <p>
+          Sandy Jaya Utama yang sebelumnya hanya Sandy Jaya, telah menyediakan
+          layanan jual, instalasi dan pemeliharaan pompa air industri di seluruh
+          area Indonesia sejak tahun 1995. Kami selalu berusaha untuk memberikan
+          pelayanan terbaik dalam penyediaan suplai pompa industri serta suku
+          cadangnya dan layanan purna jual seperti instalasi dan pemeliharaan.
+        </p>
+      </div>
+
+      <div class="flex-1">
+        <img
+          src="/assets/images/office-placeholder.jpg"
+          alt="Bangunan kantor PT Sandy Jaya Utama"
+        />
+      </div>
+    </header>
+  </main>
+</MainLayout>

@@ -1,6 +1,9 @@
 ---
 import MainLayout from "../layout/MainLayout.astro";
-import ButtonPrimary from "../components/ButtonPrimary.astro";
+import Header from "../components/homepage/Header.astro";
+import FeaturedBrands from "../components/homepage/FeaturedBrands.astro";
+import CoreServices from "../components/homepage/CoreServices.astro";
+import OtherBrands from "../components/homepage/OtherBrands.astro";
 
 const headcontent = {
   title:
@@ -14,37 +17,9 @@ const headcontent = {
 
 <MainLayout headcontent={headcontent}>
   <main>
-    <header class="hero-container pt-28 h-screen relative">
-      <section class="*:px-5 flex gap-4 flex-col">
-        <h1 class="text-3xl md:text-5xl text-brand-sea-blue">
-          Spesialis Pengadaan Pompa Industri dan Mesin Diesel Sejak 1995
-        </h1>
-        <div class="rounded-md overflow-hidden md:hidden">
-          <img
-            src="assets/images/img-placeholder.jpeg"
-            alt="SJU header image"
-            class="aspect-[16/7] object-cover rounded-xl"
-          />
-        </div>
-        <div class="bg-blue-50">
-          <p class="py-8">
-            Sandy Jaya Utama telah berpengalaman lebih dari 25 tahun dalam
-            menyediakan layanan lengkap di dalam industri pompa air. Mulai dari
-            penyediaan mesin pompa utama beserta suku cadangnya. Dari instalasi
-            awal hingga layanan purnajual: pemeliharaan dan perbaikan, untuk
-            memastikan pompa Anda selalu dalam kondisi terbaik.
-          </p>
-          <ButtonPrimary />
-        </div>
-      </section>
-      <!-- <div class="absolute top-0 w-full h-full z-0">
-        <img
-          src="assets/images/img-placeholder.jpeg"
-          alt="This is a dummy hero image"
-          class="object-cover w-full h-full"
-        />
-      </div> -->
-    </header>
-    <section></section>
+    <Header />
+    <CoreServices />
+    <FeaturedBrands />
+    <OtherBrands />
   </main>
 </MainLayout>

@@ -63,7 +63,7 @@ import ButtonPrimary from "./ButtonPrimary.astro";
       </p>
     </div>
   </a>
-  <div class="hamburger p-5 flex md:hidden md:bg-red-300">
+  <div class="hamburger p-5 flex md:hidden">
     <div></div>
     <div></div>
     <div></div>
@@ -98,7 +98,9 @@ import ButtonPrimary from "./ButtonPrimary.astro";
       menus.map((menu) => {
         return (
           <li class="menu-item text-white text-2xl font-thin px-4 py-5 mt-5 mb-5 border-b border-white border-opacity-10 overflow-hidden">
-            <a href={menu.link}>{menu.menu}</a>
+            <a href={menu.link} class=" block w-full z-50">
+              {menu.menu}
+            </a>
           </li>
         );
       })
@@ -121,13 +123,6 @@ import ButtonPrimary from "./ButtonPrimary.astro";
 
     menuItems.forEach((item) => {
       item.classList.toggle("open");
-    });
-  });
-
-  menuItems.forEach((item) => {
-    item.addEventListener("click", (event) => {
-      event.preventDefault();
-      console.log("clicked");
     });
   });
 </script>

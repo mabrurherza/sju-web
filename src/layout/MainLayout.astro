@@ -2,7 +2,7 @@
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import BaseHead from "../components/BaseHead.astro";
-const { headcontent } = Astro.props;
+const { headcontent = {} } = Astro.props;
 import "../styles/global.css";
 ---
 
@@ -37,9 +37,14 @@ import "../styles/global.css";
       href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body class="font-brand">
     <Navbar />
+    <div class="nav-spacer h-20 -z-10 relative"></div>
     <slot />
     <Footer />
   </body>
