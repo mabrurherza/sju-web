@@ -64,7 +64,7 @@ const { name, image, slug } = Astro.props;
       greeting = "Selamat malam.";
     }
 
-    const message = `${greeting} Saya ingin bertanya terkait produk ${productName} di halaman ini https://www.sandyjaya.com/products/${slug}`;
+    const message = `${greeting} Saya ingin bertanya terkait produk ${productName} di halaman ini http://sju-webdev.netlify.app//products/${slug}`;
     // const whatsappUrl = `whatsapp://send?phone=${phoneNumber}?text=${encodeURIComponent(message)}`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
