@@ -5,9 +5,10 @@ logo: "/src/assets/logo/logo-grundfos.png"
 name: "Grundfos SP"
 category: "Submersible Groundwater Pumps"
 description: 'Grundfos SP are submersible borehole pumps, designed for pumping groundwater. Grundfos SP are all stainless-steel pumps, and they are available in 3 material grades. The pumps are suitable for boreholes in sizes ranging from 4" over 6" and 8" to 10". The motor sizes for the pumps are available in 0.37-250 kW.'
-images: ["/src/assets/product/grundfos/grundfos-sp-1.png"]
+images: ["/assets/images/product/grundfos/grundfos-sp-1.png"]
 stock: true
 catalogue: ""
+featured: false
 ---
 
 Grundfos SP submersible pumps are renowned for their high efficiency and reliability throughout the range. Made entirely of corrosion-resistant stainless steel, SP pumps are ideal for a wide variety of applications.

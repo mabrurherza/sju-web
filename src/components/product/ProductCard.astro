@@ -3,7 +3,9 @@ import Image from "astro/components/Image.astro";
 const { name, image, slug } = Astro.props;
 ---
 
-<div class="flex-1 h-fit rounded-lg overflow-hidden bg-blue-50">
+<div
+  class="flex-1 h-fit rounded-lg overflow-hidden border border-blue-100 product-card"
+>
   <a href={`/products/${slug}`}>
     <Image
       src={image[0]}
@@ -13,11 +15,94 @@ const { name, image, slug } = Astro.props;
       alt={`Preview product of: ${name}`}
     />
   </a>
-  <div class="p-3">
-    <p class="text-base font-medium">{name}</p>
-    <a
-      href={`/products/${slug}`}
-      class="text-brand-sea-blue text-sm hover:text-blue-800">Detail</a
-    >
+  <div class="p-1 md:p-3">
+    <a href={`/products/${slug}`} class="block mb-3">
+      <p
+        class="text-base md:text-lg leading-4 font-medium hover:text-brand-sea-blue"
+        id="productName"
+      >
+        {name}
+      </p>
+    </a>
+    <div class="flex flex-col xl:flex-row gap-2 md:gap-3">
+      <a
+        data-slug={slug}
+        href=""
+        role="button"
+        class="whatsappButton py-2 flex-1 text-center rounded-md text-white text-sm md:text-base bg-brand-sea-blue hover:bg-blue-800"
+        >Ask for price</a
+      >
+      <a
+        href={`/products/${slug}`}
+        class="py-2 flex-1 text-center rounded-md border border-brand-sea-blue text-brand-sea-blue text-sm md:text-base hover:text-blue-800"
+        >Detail</a
+      >
+    </div>
   </div>
 </div>
+
+<script>
+  const productCards = document.querySelectorAll(".product-card"); // Assuming each product card has a class 'product-card'
+
+  const currentHour = new Date().getHours();
+
+  productCards.forEach((card) => {
+    const productName = card.querySelector("p").textContent;
+    const contactButton = card.querySelector(".whatsappButton") as HTMLElement;
+    const slug = contactButton.dataset.slug;
+    const phoneNumber = "+6287817002400";
+
+    let greeting;
+
+    if (currentHour >= 0 && currentHour < 10) {
+      greeting = "Selamat pagi.";
+    } else if (currentHour >= 10 && currentHour < 15) {
+      greeting = "Selamat siang.";
+    } else if (currentHour >= 15 && currentHour < 17) {
+      greeting = "Selamat sore.";
+    } else {
+      greeting = "Selamat malam.";
+    }
+
+    const message = `${greeting} Saya ingin bertanya terkait produk ${productName} di halaman ini https://www.sandyjaya.com/products/${slug}`;
+    // const whatsappUrl = `whatsapp://send?phone=${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    contactButton.addEventListener("click", () => {
+      event.preventDefault();
+      console.log(productName);
+      console.log(slug);
+      window.open(whatsappUrl, "_blank");
+    });
+  });
+
+  // const allContactBtn = document.querySelectorAll(".whatsappButton");
+
+  // allContactBtn.forEach((btn) => {
+  //   btn.addEventListener("click", function () {
+  //     event.preventDefault();
+  //     console.log(console.log(btn));
+  // event.preventDefault();
+  // const phoneNumber = "+6287817002400";
+  // const productSlug = btn.dataset.slug;
+  // const productName = document.getElementById("productName").innerText;
+  // const currentHour = new Date().getHours();
+  // let greeting;
+
+  // if (currentHour >= 0 && currentHour < 10) {
+  //   greeting = "Selamat pagi.";
+  // } else if (currentHour >= 10 && currentHour < 15) {
+  //   greeting = "Selamat siang.";
+  // } else if (currentHour >= 15 && currentHour < 17) {
+  //   greeting = "Selamat sore.";
+  // } else {
+  //   greeting = "Selamat malam.";
+  // }
+
+  // const message = `${greeting} Saya ingin bertanya terkait produk ${productName} di halaman ini https://www.sandyjaya.com/products/${productSlug}`;
+  // const whatsappUrl = `whatsapp://send?phone=${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  // window.open(whatsappUrl, "_blank");
+  //   });
+  // });
+</script>

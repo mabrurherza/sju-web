@@ -5,9 +5,10 @@ logo: "/src/assets/logo/logo-grundfos.png"
 name: "Grundfos NK"
 category: "Centrifugal Pump"
 description: "Standard pumps according to EN 733"
-images: ["/src/assets/product/grundfos/grundfos-nk-1.png"]
+images: ["/assets/images/product/grundfos/grundfos-nk-1.png"]
 stock: true
 catalogue: ""
+featured: false
 ---
 
 Applications
