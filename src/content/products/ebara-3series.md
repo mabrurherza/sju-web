@@ -5,7 +5,7 @@ logo: "/src/assets/logo/logo-ebara.png"
 name: "Ebara 3 Series"
 category: "Centrifugal Pump"
 description: "Closed Coupled and Standardized Centrifugal Pump 3 Series 2 Poles"
-images: ["/assets/images/product/ebara/ebara-3series-1.png"]
+images: ["/assets/images/product/ebara/ebara-3series-1.jpg"]
 stock: true
 catalogue:
 featured: true

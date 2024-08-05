@@ -1,18 +1,22 @@
 ---
 const props = Astro.props;
+import IconWhatsapp from "../components/icon/IconWhatsapp.astro";
 ---
 
 <a href={props.link}>
   <button
     id={props.customId}
-    class="bg-brand-sea-blue hover:bg-blue-800 text-white text-lg px-6 py-3 rounded-md outline outline-4 outline-blue-100 relative overflow-hidden group w-full"
+    class="bg-brand-sea-blue text-white text-lg px-6 py-3 rounded-md outline outline-4 outline-blue-100 relative overflow-hidden group w-full"
   >
     <div
       class="absolute w-0 group-hover:w-full h-full bg-blue-950 left-0 top-0 transition-all z-0"
     >
     </div>
-    <p class="z-10 relative">
-      {props.text}
-    </p>
+    <div class="flex gap-2 justify-center">
+      {props.iconWA ? <IconWhatsapp /> : ""}
+      <p class="z-10 relative">
+        {props.text}
+      </p>
+    </div>
   </button>
 </a>

@@ -3,9 +3,15 @@ import { Image } from "astro:assets";
 const { source, alt } = Astro.props;
 ---
 
-<img
-  src={source[0]}
-  alt={`Preview product of ${alt}`}
-  class="w-full rounded-xl border border-blue-200 h-full"
-  loading="lazy"
-/>
+<div
+  class="aspect-video md:aspect-square w-full rounded-xl border border-blue-100 flex items-center"
+>
+  <Image
+    src={source[0]}
+    alt={`Preview product of ${alt}`}
+    class="w-full object-cover object-center"
+    loading="lazy"
+    width={300}
+    height={300}
+  />
+</div>

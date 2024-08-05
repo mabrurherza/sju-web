@@ -11,14 +11,14 @@ const { name, image, slug } = Astro.props;
       src={image[0]}
       width={600}
       height={600}
-      class="aspect-square object-cover"
+      class="aspect-video object-cover"
       alt={`Preview product of: ${name}`}
     />
   </a>
   <div class="p-1 md:p-3">
     <a href={`/products/${slug}`} class="block mb-3">
       <p
-        class="text-base md:text-lg leading-4 font-medium hover:text-brand-sea-blue"
+        class="text-center md:text-left mt-3 md:mt-0 text-base md:text-lg leading-4 font-medium hover:text-brand-sea-blue"
         id="productName"
       >
         {name}
@@ -29,12 +29,12 @@ const { name, image, slug } = Astro.props;
         data-slug={slug}
         href=""
         role="button"
-        class="whatsappButton py-2 flex-1 text-center rounded-md text-white text-sm md:text-base bg-brand-sea-blue hover:bg-blue-800"
+        class="whatsappButton py-2 flex-1 text-center rounded-md text-white text-sm md:text-base bg-brand-sea-blue hover:bg-blue-900 transition-colors duration-500"
         >Ask for price</a
       >
       <a
         href={`/products/${slug}`}
-        class="py-2 flex-1 text-center rounded-md border border-brand-sea-blue text-brand-sea-blue text-sm md:text-base hover:text-blue-800"
+        class="py-2 flex-1 text-center rounded-md border border-blue-100 hover:bg-blue-100 text-brand-sea-blue text-sm md:text-base hover:text-blue-900 transition-colors duration-500"
         >Detail</a
       >
     </div>

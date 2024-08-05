@@ -5,7 +5,7 @@ logo: "/src/assets/logo/logo-ebara.png"
 name: "Ebara CDX"
 category: "Centrifugal Pump"
 description: "Single-impeller centrifugal pump in AISI 304 and AISI 316 stainless steel, with radial impeller and components made by the hydroforming process that provides high resistance to corrosion. The versatility of these electric pumps is due to the different types of mechanical seals that can be applied."
-images: ["/assets/images/product/ebara/ebara-cdx-1.png"]
+images: ["/assets/images/product/ebara/ebara-cdx-1.jpg"]
 stock: true
 catalogue:
 featured: true

@@ -4,6 +4,7 @@ const {
   description = "Penyedia pompa air industri dan suku cadang seperti Grundfos, Ebara, Torishima, Sihi, Tsurumi Pump, OBL, Oriental Koshin",
   keywords = "Penyedia Pompa Air Industri di Indonesia, pompa air industri, Grundfos, Ebara, Torishima, Sihi, pompa sentrifugal, pompa submersible, pompa booster, solusi pompa industri, Tsurumi, OBL, KOSHIN, Siemens, Teco, WEG, CMG, Isuzu, FG Wilson",
   canonical = "https://www.sandyjaya.com",
+  ogImage = "/assets/images/SJU-og-image.jpg",
 } = Astro.props;
 ---
 
@@ -13,5 +14,5 @@ const {
 <link rel="canonical" href={canonical} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content="/assets/images/SJU-og-images.jpg" />
+<meta property="og:image" content=`http://sju-webdev.netlify.app${ogImage}` />
 <meta name="robots" content="index, follow" />

@@ -5,7 +5,7 @@ logo: "/src/assets/logo/logo-grundfos.png"
 name: "Grundfos CR"
 category: "Multistages Pump"
 description: "Vertical, multistage centrifugal pump with suction and discharge ports on the same level. The pump head and base are in cast iron - all other wetted parts are in stainless steel (EN 1.4301)"
-images: ["/assets/images/product/grundfos/grundfos-cr-1.png"]
+images: ["/assets/images/product/grundfos/grundfos-cr-1.jpg"]
 stock: true
 catalogue:
 featured: true

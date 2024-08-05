@@ -20,24 +20,26 @@ const allProducts = await getCollection("products");
 <style>
   .custom-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
   }
 </style>
 
 <MainLayout>
   <Breadcrumb />
   <main>
-    <section
-      class="px-4 py-5 flex flex-col lg:flex-row gap-4 relative overflow-visible"
-    >
+    <section class="flex flex-col lg:flex-col gap-4 relative overflow-visible">
       <div
-        class="flex-1 max-w-none md:max-w-[320px] bg-blue-50 rounded-lg h-fit sticky top-[94px] left-0"
+        class="flex-1 bg-white border-b border-blue-100 h-fit sticky top-[80px] left-0"
       >
         <p class="font-medium text-lg p-4 text-slate-300">
           Filter (in development)
         </p>
       </div>
-      <div class="flex-1 custom-grid gap-4">
+      <div class="custom-grid gap-5 p-4">
         {
           allProducts.map((p) => {
             return (
