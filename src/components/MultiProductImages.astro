@@ -1,6 +1,69 @@
 ---
 import { Image } from "astro:assets";
-const { source } = Astro.props;
+const { source, alt } = Astro.props;
 ---
 
-<div>Multi image</div>
+<div
+  class="aspect-video md:aspect-square w-full rounded-xl border border-blue-100 flex items-center overflow-hidden"
+>
+  <Image
+    src={source[0]}
+    alt={`Preview product of ${alt}`}
+    class="w-full object-cover object-center"
+    loading="lazy"
+    width={300}
+    height={300}
+    id="mainImage"
+  />
+</div>
+<div class="flex gap-1 md:gap-3 w-full mt-1 md:mt-3 flex-wrap mb-10 md:mb-0">
+  {
+    source.map((url, index) => {
+      return (
+        <img
+          src={url}
+          class="imgthumb w-16 aspect-square object-cover rounded-lg cursor-pointer opacity-50 hover:opacity-100 box-border "
+          id={`imgThumb-${index + 1}`}
+        />
+      );
+    })
+  }
+</div>
+
+<script>
+  //   const mainImage = document.getElementById("mainImage") as HTMLImageElement;
+  //   const mainImageSrc = mainImage.src;
+
+  const allImages = document.querySelectorAll(".imageThumb");
+
+  function updateMainImage(thumbnail: HTMLImageElement) {
+    const mainImage = document.getElementById("mainImage") as HTMLImageElement;
+    if (mainImage && thumbnail) {
+      mainImage.src = thumbnail.src;
+    }
+
+    const thumbnails = document.querySelectorAll(
+      ".imgthumb"
+    ) as NodeListOf<HTMLImageElement>;
+    thumbnails.forEach((thumb) => {
+      thumb.classList.remove("opacity-100", "border-4");
+      thumb.classList.add("opacity-50");
+    });
+
+    thumbnail.classList.remove("opacity-50");
+    thumbnail.classList.add("opacity-100", "border-blue-600", "border-4");
+  }
+
+  function addThumbnailClickListeners() {
+    const thumbnails = document.querySelectorAll(
+      ".imgthumb"
+    ) as NodeListOf<HTMLImageElement>;
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener("click", () => updateMainImage(thumbnail));
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    addThumbnailClickListeners();
+  });
+</script>

@@ -9,11 +9,15 @@ import ButtonPrimary from "../components/ButtonPrimary.astro";
 function getBrandLogo(brand) {
   switch (brand) {
     case "Grundfos":
-      return "/src/assets/logo/brands/logo-grundfos.png";
+      return "/assets/graphics/logo/logo-grundfos.png";
     case "Ebara":
-      return "/src/assets/logo/brands/logo-ebara.png";
+      return "/assets/graphics/logo/logo-ebara.png";
     case "Torishima":
-      return "/src/assets/logo/brands/logo-torishima.png";
+      return "/assets/graphics/logo/logo-torishima.png";
+    case "Sihi":
+      return "/assets/graphics/logo/logo-sihi.png";
+    case "Tsurumi":
+      return "/assets/graphics/logo/logo-tsurumi.png";
     default:
       return "/src/assets/logo/brands/logo-fallback.png"; // Fallback logo
   }
@@ -53,7 +57,10 @@ console.log(frontmatter.images);
               alt={frontmatter.name}
             />
           ) : (
-            <MultiProductImages />
+            <MultiProductImages
+              source={frontmatter.images}
+              alt={frontmatter.name}
+            />
           )
         }
       </div>
