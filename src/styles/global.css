@@ -37,3 +37,16 @@ h4 {
 .transition-once {
     animation-fill-mode: none;
 }
+
+
+/* table {
+    @apply w-full overflow-x-scroll
+} */
+
+tr th {
+    @apply bg-blue-100
+}
+
+tr, th, td {
+    @apply p-2
+}

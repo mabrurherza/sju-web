@@ -4,7 +4,7 @@ const { name, image, slug } = Astro.props;
 ---
 
 <div
-  class="flex-1 h-fit rounded-lg overflow-hidden border border-blue-100 product-card"
+  class="flex-1 h-fit rounded-lg overflow-hidden border border-blue-100 product-card group"
 >
   <a href={`/products/${slug}`}>
     <Image
@@ -18,24 +18,32 @@ const { name, image, slug } = Astro.props;
   <div class="p-1 md:p-3">
     <a href={`/products/${slug}`} class="block mb-3">
       <p
-        class="text-center md:text-left mt-3 md:mt-0 text-base md:text-lg leading-4 font-medium hover:text-brand-sea-blue"
+        class="text-center mt-3 md:mt-0 text-base md:text-xl leading-4 font-medium group-hover:text-brand-sea-blue"
         id="productName"
       >
         {name}
       </p>
     </a>
-    <div class="flex flex-col xl:flex-row gap-2 md:gap-3">
+    <!-- <div class="flex flex-col xl:flex-row gap-2 md:gap-3">
       <a
         data-slug={slug}
         href=""
         role="button"
         class="whatsappButton py-2 flex-1 text-center rounded-md text-white text-sm md:text-base bg-brand-sea-blue hover:bg-blue-900 transition-colors duration-500"
-        >Ask for price</a
+        >Request Enquiry</a
       >
       <a
         href={`/products/${slug}`}
         class="py-2 flex-1 text-center rounded-md border border-blue-100 hover:bg-blue-100 text-brand-sea-blue text-sm md:text-base hover:text-blue-900 transition-colors duration-500"
         >Detail</a
+      >
+    </div> -->
+    <div class="flex flex-col xl:flex-row gap-2 md:gap-3">
+      <a
+        data-slug={slug}
+        role="button"
+        class="whatsappButton py-2 md:py-3 flex-1 text-center rounded-md border border-blue-100 hover:bg-blue-100 text-brand-sea-blue text-sm md:text-base hover:text-blue-900 transition-colors duration-500"
+        >Request Enquiry</a
       >
     </div>
   </div>
@@ -64,7 +72,7 @@ const { name, image, slug } = Astro.props;
       greeting = "Selamat malam.";
     }
 
-    const message = `${greeting} Saya ingin bertanya terkait produk ${productName} di halaman ini http://sju-webdev.netlify.app//products/${slug}`;
+    const message = `${greeting} Saya ingin bertanya terkait produk ${productName} di halaman ini http://sju-webdev.netlify.app/products/${slug}`;
     // const whatsappUrl = `whatsapp://send?phone=${phoneNumber}?text=${encodeURIComponent(message)}`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
