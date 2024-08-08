@@ -3,15 +3,37 @@ import MainLayout from "../layout/MainLayout.astro";
 const headcontent = {
   title: "Tentang Sandy Jaya Utama",
 };
+
+import portfolios from "../components/PortfolioData.js";
+
+const groupedPortfolios = portfolios.reduce((acc, portfolio) => {
+  const { jenis_usaha, customer_proyek, keterangan, lokasi } = portfolio;
+  if (!acc[jenis_usaha]) {
+    acc[jenis_usaha] = [];
+  }
+  acc[jenis_usaha].push({ customer_proyek, keterangan, lokasi });
+  return acc;
+}, {});
 ---
+
+<style>
+  .custom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+  }
+</style>
 
 <MainLayout headcontent={headcontent}>
   <main>
     <header
-      class="px-5 md:px-10 py-10 min-h-96 text-blue-900 flex flex-col md:flex-row items-center gap-5"
+      class="px-5 md:px-10 py-10 min-h-96 flex flex-col md:flex-row items-center gap-5"
     >
       <div class="flex flex-col gap-5 flex-1">
-        <h1 class="text-4xl">
+        <h1 class="text-4xl text-blue-900">
           Tentang <br />Sandy Jaya Utama
         </h1>
         <p>
@@ -30,5 +52,64 @@ const headcontent = {
         />
       </div>
     </header>
+
+    <section
+      class="px-5 md:px-10 py-10 min-h-96 flex flex-col bg-blue-50 bg-opacity-50 gap-5"
+    >
+      <h1 class="text-4xl text-blue-900 mb-5">Yang telah mempercayai kami</h1>
+
+      <div>
+        {
+          Object.entries(groupedPortfolios).map(([jenisUsaha, items]) => (
+            <div class=" mb-20">
+              <div class="flex gap-4 items-center mb-4">
+                <h2 class="text-2xl text-blue-900 relative min-w-40">
+                  {" "}
+                  <span class="absolute -top-4 text-sm">Bidang usaha</span>{" "}
+                  {jenisUsaha}
+                </h2>
+                <div class="h-[1px] bg-blue-200 w-full" />
+              </div>
+              <div class="custom-grid gap-6">
+                {items.map((item) => (
+                  <div>
+                    <p class="text-lg leading-none mb-1">
+                      {item.customer_proyek}
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-1 md:gap-2">
+                      <div class="flex items-center gap-1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="16px"
+                          viewBox="0 -960 960 960"
+                          width="16px"
+                          class="fill-slate-400"
+                        >
+                          <path d="M80-80v-481l280-119v80l200-80v120h320v480H80Zm80-80h640v-320H480v-82l-200 80v-78l-120 53v347Zm280-80h80v-160h-80v160Zm-160 0h80v-160h-80v160Zm320 0h80v-160h-80v160Zm280-320H680l40-320h120l40 320ZM160-160h640-640Z" />
+                        </svg>
+                        <p class="capitalize text-sm ">{item.keterangan}</p>{" "}
+                      </div>
+
+                      <div class="flex items-center gap-1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="16px"
+                          viewBox="0 -960 960 960"
+                          width="16px"
+                          class="inline fill-slate-400"
+                        >
+                          <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                        <p class="text-sm">{item.lokasi}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
   </main>
 </MainLayout>

@@ -4,26 +4,40 @@ import Breadcrumb from "../../components/product/Breadcrumb.astro";
 import { getCollection, getEntry } from "astro:content";
 import ProductCard from "../../components/product/ProductCard.astro";
 
-// Get all entries from a collection.
-// Requires the name of the collection as an argument.
-// Example: retrieve `src/content/blog/**`
 const allProducts = await getCollection("products");
 
-// Get a single entry from a collection.
-// Requires the name of the collection and either
-// the entry `slug` (content collections) or `id` (data collections)
-// Example: retrieve `src/content/authors/grace-hopper.json`
-// const graceHopperProfile = await getEntry('authors', 'grace-hopper');
-// console.log(allProducts);
+const brands = [...new Set(allProducts.map((item) => item.data.brand))];
 ---
 
 <style>
   .custom-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 
     @media screen and (max-width: 600px) {
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+  }
+
+  .product-card {
+    transition:
+      opacity 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+  }
+
+  .product-card.umpet {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+  }
+
+  .filter-menu {
+    height: 0px;
+    overflow: hidden;
+    transition: all 150ms ease-in;
+
+    &.show {
+      height: fit-content;
     }
   }
 </style>
@@ -33,13 +47,43 @@ const allProducts = await getCollection("products");
   <main>
     <section class="flex flex-col lg:flex-col gap-4 relative overflow-visible">
       <div
-        class="flex-1 bg-white border-b border-blue-100 h-fit sticky top-[80px] left-0"
+        class="flex-1 bg-white border-b border-blue-100 sticky top-[80px] left-0 p-4"
       >
-        <p class="font-medium text-lg p-4 text-slate-300">
-          Filter (in development)
-        </p>
+        <div class="flex gap-2 items-center cursor-pointer" id="FilterButton">
+          <p id="filterTitle" class="text-slate-900 leading-3">Semua Brand</p>
+
+          <img
+            src="/assets/graphics/ic-chevron-down.svg"
+            class="chevronDown w-6 h-6 transition-transform rotate-180"
+          />
+        </div>
+        <div
+          id="FilterMenu"
+          class="filter-menu bg-white flex items-center border-b border-blue-100 w-full absolute top-14 left-0 drop-shadow-sm"
+        >
+          <ul class="p-4 flex flex-wrap gap-5">
+            <li
+              data-filter="All Brands"
+              class="filter-button cursor-pointer hover:text-brand-sea-blue border border-blue-100 py-1 px-2 rounded-md"
+            >
+              All Brands
+            </li>
+            {
+              brands.map((brand) => {
+                return (
+                  <li
+                    data-filter={brand}
+                    class="filter-button cursor-pointer hover:text-brand-sea-blue border border-blue-100 py-1 px-2 rounded-md"
+                  >
+                    {brand}
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
       </div>
-      <div class="custom-grid gap-5 p-4">
+      <div id="productList" class="custom-grid gap-5 p-4 mb-10">
         {
           allProducts.map((p) => {
             return (
@@ -47,6 +91,7 @@ const allProducts = await getCollection("products");
                 name={p.data.name}
                 image={p.data.images}
                 slug={p.slug}
+                brand={p.data.brand}
               />
             );
           })
@@ -55,3 +100,55 @@ const allProducts = await getCollection("products");
     </section>
   </main>
 </MainLayout>
+
+<script>
+  const FilterButton = document.querySelector("#FilterButton");
+
+  FilterButton.addEventListener("click", () => {
+    document.getElementById("FilterMenu").classList.toggle("show");
+    document.querySelector(".chevronDown").classList.toggle("rotate-0");
+  });
+
+  const filterTitle = document.querySelector("#filterTitle");
+  const filterButtons = document.querySelectorAll(".filter-button");
+
+  function updateProductListing(brand) {
+    const productCards = document.querySelectorAll(".product-card");
+
+    productCards.forEach((card) => {
+      if (card instanceof HTMLElement) {
+        if (brand === "All Brands") {
+          card.style.display = "block";
+        } else {
+          const cardBrand = card.getAttribute("data-brand");
+          card.style.display = cardBrand === brand ? "block" : "none";
+        }
+      }
+    });
+  }
+
+  filterButtons.forEach((item) => {
+    item.addEventListener("click", function () {
+      const brand = this.getAttribute("data-filter");
+
+      const url = new URL(window.location.href);
+      url.searchParams.set("brand", brand);
+      window.history.pushState({}, "", url);
+
+      filterTitle.textContent = brand;
+
+      updateProductListing(brand);
+
+      document.getElementById("FilterMenu").classList.toggle("show");
+      document.querySelector(".chevronDown").classList.toggle("rotate-0");
+    });
+  });
+
+  // const handleFilterClick = function (event) {
+  //   alert("filter clicked");
+  // };
+
+  // filterButtons.forEach((list) => {
+  //   list.addEventListener("click", handleFilterClick);
+  // });
+</script>

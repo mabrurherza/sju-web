@@ -1,0 +1,50 @@
+---
+import MainLayout from "../../../layout/MainLayout.astro";
+import ProductLayout from "../../../layout/ProductLayout.astro";
+
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const products = await getCollection("products");
+
+  const brands = [...new Set(products.map((product) => product.data.brand))];
+
+  return brands.map((brand) => ({
+    params: { brand },
+    props: {
+      brand,
+      products: products.filter((product) => product.data.brand === brand),
+    },
+  }));
+}
+
+const { brand } = Astro.params;
+const { products } = Astro.props;
+
+// const { Content } = await products.render();
+
+console.log(products);
+
+const headcontent = {
+  title: `SJU • Semua produk brand ${brand}`,
+  description: `SJU menyediakan lini produk dari brand ${brand}`,
+};
+---
+
+<MainLayout headcontent={headcontent}>
+  <h1>{brand}</h1>
+  <ul>
+    {
+      products.map((product) => (
+        <li>
+          <a href={`/products/${product.slug}`}>{product.data.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <!-- <Content /> -->
+</MainLayout>
+<!-- 
+<MainLayout headcontent={headcontent}>
+  <Content />
+</MainLayout> -->

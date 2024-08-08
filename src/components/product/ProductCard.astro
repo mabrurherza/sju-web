@@ -1,10 +1,11 @@
 ---
 import Image from "astro/components/Image.astro";
-const { name, image, slug } = Astro.props;
+const { name, image, slug, brand } = Astro.props;
 ---
 
 <div
-  class="flex-1 h-fit rounded-lg overflow-hidden border border-blue-100 product-card group"
+  class="product-card h-fit rounded-lg overflow-hidden border border-blue-100 product-card group"
+  data-brand={brand}
 >
   <a href={`/products/${slug}`}>
     <Image
@@ -78,8 +79,7 @@ const { name, image, slug } = Astro.props;
 
     contactButton.addEventListener("click", () => {
       event.preventDefault();
-      console.log(productName);
-      console.log(slug);
+
       window.open(whatsappUrl, "_blank");
     });
   });
