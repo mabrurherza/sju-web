@@ -10,7 +10,21 @@ import LogoWeg from "/src/assets/logo/brands/logo-weg.png";
 import LogoCmg from "/src/assets/logo/brands/logo-cmg.png";
 import LogoIsuzu from "/src/assets/logo/brands/logo-isuzu.png";
 import LogoFGWilson from "/src/assets/logo/brands/logo-fgwilson.png";
+import LogoCMP from "/src/assets/logo/brands/logo-cmp.png";
+import LogoPerkins from "/src/assets/logo/brands/logo-perkins.png";
+import LogoPanworld from "/src/assets/logo/brands/logo-panworld.png";
 ---
+
+<style>
+  .custom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+  }
+</style>
 
 <section
   class="px-5 md:px-10 py-0 pb-10 md:py-20 flex flex-col md:flex-row justify-between gap-5 md:gap-20"
@@ -21,7 +35,7 @@ import LogoFGWilson from "/src/assets/logo/brands/logo-fgwilson.png";
     <h4 class="w-fit md:flex-grow-0">All Brands</h4>
     <a href="/products/">
       <button
-        class="flex flex-1 md:flex-grow-0 justify-between items-center rounded-md p-1 pl-2 md:p-2 text-brand-sea-blue border-brand-sea-blue border w-full group hover:bg-blue-100"
+        class="flex flex-1 md:flex-grow-0 justify-between items-center rounded-md p-1 pl-2 md:p-2 text-brand-sea-blue border-brand-sea-blue border w-full h-fit group hover:bg-blue-100"
       >
         <p>Browse all brands</p>
         <div class="w-10 h-10 overflow-hidden relative">
@@ -39,54 +53,91 @@ import LogoFGWilson from "/src/assets/logo/brands/logo-fgwilson.png";
       </button>
     </a>
   </div>
-  <div
-    class="flex flex-1 flex-wrap justify-between max-w-none md:max-w-[60%] gap-4"
-  >
-    <Image
-      src={LogoTsurumi}
-      class="max-w-20 md:max-w-44 w-full"
-      alt="Official logo of Tsurumi"
-    />
-    <Image
-      src={LogoObl}
-      class="max-w-20 md:max-w-44 w-full"
-      alt="Official logo of OBL"
-    />
+  <!-- <div
+    class="flex flex-1 flex-wrap md:justify-between max-w-none md:max-w-[60%] gap-5"
+  > -->
+  <div class="custom-grid w-full max-w-none md:max-w-[60%] gap-5 md:gap-10">
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoTsurumi}
+        class="max-w-20 md:max-w-44 w-full h-fit"
+        alt="Official logo of Tsurumi"
+      />
+    </div>
 
-    <Image
-      src={LogoTeco}
-      class="max-w-20 md:max-w-44 w-full"
-      alt="Official logo of TECO"
-    />
-    <Image
-      src={LogoWeg}
-      class="max-w-20 md:max-w-44 w-full"
-      alt="Official logo of WEG"
-    />
-    <Image
-      src={LogoCmg}
-      class="max-w-20 md:max-w-44 w-full"
-      alt="Official logo of CMG"
-    />
-    <Image
-      src={LogoFGWilson}
-      class="max-w-20 md:max-w-44 w-full"
-      alt="Official logo of FG Wilson"
-    />
-    <Image
-      src={LogoKoshin}
-      class="max-w-20 md:max-w-44 w-full"
-      alt="Official logo of KOSHIN"
-    />
-    <Image
-      src={LogoSiemens}
-      class="max-w-20 md:max-w-44 w-full"
-      alt="Official logo of Siemens"
-    />
-    <Image
-      src={LogoIsuzu}
-      class="max-w-20 md:max-w-44 w-full"
-      alt="Official logo of ISUZU"
-    />
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoObl}
+        class="max-w-20 md:max-w-32 w-full h-fit"
+        alt="Official logo of OBL"
+      />
+    </div>
+
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoTeco}
+        class="max-w-20 md:max-w-44 w-full h-fit"
+        alt="Official logo of TECO"
+      />
+    </div>
+
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoWeg}
+        class="max-w-20 md:max-w-44 w-full h-fit"
+        alt="Official logo of WEG"
+      />
+    </div>
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoFGWilson}
+        class="max-w-20 md:max-w-44 w-full h-fit"
+        alt="Official logo of FG Wilson"
+      />
+    </div>
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoCMP}
+        class="max-w-16 w-full h-fit"
+        alt="Official logo of CMP"
+      />
+    </div>
+
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoKoshin}
+        class="max-w-20 md:max-w-44 w-full h-fit"
+        alt="Official logo of KOSHIN"
+      />
+    </div>
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoSiemens}
+        class="max-w-20 md:max-w-44 w-full h-fit"
+        alt="Official logo of Siemens"
+      />
+    </div>
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoIsuzu}
+        class="max-w-20 md:max-w-44 w-full h-fit"
+        alt="Official logo of ISUZU"
+      />
+    </div>
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoPerkins}
+        class="max-w-20 md:max-w-44 w-full h-fit"
+        alt="Official logo of Perkins"
+      />
+    </div>
+
+    <div class="flex items-center justify-center">
+      <Image
+        src={LogoPanworld}
+        class="max-w-20 md:max-w-44 w-full h-fit"
+        alt="Official logo of Pan World"
+      />
+    </div>
   </div>
 </section>

@@ -49,12 +49,15 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
       <div
         class="flex-1 bg-white border-b border-blue-100 sticky top-[80px] left-0 p-4"
       >
-        <div class="flex gap-2 items-center cursor-pointer" id="FilterButton">
+        <div
+          class="flex gap-2 items-center cursor-pointer w-fit"
+          id="FilterButton"
+        >
           <p id="filterTitle" class="text-slate-900 leading-3">Semua Brand</p>
 
           <img
             src="/assets/graphics/ic-chevron-down.svg"
-            class="chevronDown w-6 h-6 transition-transform rotate-180"
+            class="chevronDown w-6 h-6 transition-transform rotate-0"
           />
         </div>
         <div
@@ -106,7 +109,7 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
 
   FilterButton.addEventListener("click", () => {
     document.getElementById("FilterMenu").classList.toggle("show");
-    document.querySelector(".chevronDown").classList.toggle("rotate-0");
+    document.querySelector(".chevronDown").classList.toggle("rotate-180");
   });
 
   const filterTitle = document.querySelector("#filterTitle");
@@ -140,7 +143,7 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
       updateProductListing(brand);
 
       document.getElementById("FilterMenu").classList.toggle("show");
-      document.querySelector(".chevronDown").classList.toggle("rotate-0");
+      document.querySelector(".chevronDown").classList.toggle("rotate-180");
     });
   });
 

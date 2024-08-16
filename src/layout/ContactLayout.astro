@@ -4,8 +4,6 @@ import Footer from "../components/Footer.astro";
 import BaseHead from "../components/BaseHead.astro";
 const { headcontent = {} } = Astro.props;
 import "../styles/global.css";
-
-const urlPath = Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -50,7 +48,6 @@ const urlPath = Astro.url.pathname;
     <Navbar />
     <div class="nav-spacer h-20 -z-10 relative"></div>
     <slot />
-    {urlPath === "/contact" ? "" : <Footer />}
-    <!-- <Footer /> -->
+    <Footer />
   </body>
 </html>

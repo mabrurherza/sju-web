@@ -14,13 +14,13 @@ const menus = [
     //     submenu: ["grundfos", "ebara", "wilo"],
     // },
     {
-        menu: "Browse Product",
+        menu: "Product",
         link: "/products",
     },
-    {
-        menu: "Contact Us",
-        link: "/contact-us",
-    },
+    // {
+    //     menu: "Contact",
+    //     link: "/contact",
+    // },
 ];
 
 

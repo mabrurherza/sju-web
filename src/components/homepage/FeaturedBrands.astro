@@ -3,14 +3,18 @@ import { Image } from "astro:assets";
 import logoEbara from "../../assets/logo/logo-ebara.png";
 import logoGrundfos from "../../assets/logo/logo-grundfos.png";
 import logoTorishima from "../../assets/logo/logo-torishima.png";
-import logoSihi from "../../assets/logo/logo-sihi.png";
+import logoTsurumi from "../../assets/logo/logo-tsurumi.png";
 
 import featuredEbara from "../../assets/product/featured-ebara.png";
 import featuredGrundfos from "../../assets/product/featured-grundfos.png";
 import featuredTorishima from "../../assets/product/featured-torishima.png";
-import featuredSihi from "../../assets/product/featured-sihi.png";
+import featuredTsurumi from "../../assets/product/featured-tsurumi.png";
 
 import ButtonMedium from "../ButtonMedium.astro";
+
+console.log(logoEbara);
+
+console.log(logoEbara.width > logoEbara.height ? "true" : "false");
 ---
 
 <section class="px-5 md:px-10 py-10 md:py-20 flex flex-col gap-5 md:gap-10">
@@ -26,7 +30,7 @@ import ButtonMedium from "../ButtonMedium.astro";
           <Image
             src={logoEbara}
             alt="Official Logo of Ebara"
-            class="max-w-32 md:max-w-28 h-fit"
+            class="max-w-14 h-fit"
           />
 
           <Image
@@ -35,7 +39,7 @@ import ButtonMedium from "../ButtonMedium.astro";
             class="max-w-40 md:max-w-52"
           />
         </div>
-        <ButtonMedium text="Browse Ebara" url="#" />
+        <ButtonMedium text="Browse Ebara" url="/products" />
       </div>
     </a>
 
@@ -57,7 +61,7 @@ import ButtonMedium from "../ButtonMedium.astro";
           />
         </div>
 
-        <ButtonMedium text="Browse Grundfos" url="#" />
+        <ButtonMedium text="Browse Grundfos" url="/products" />
       </div>
     </a>
 
@@ -77,7 +81,7 @@ import ButtonMedium from "../ButtonMedium.astro";
             class="max-w-40 md:max-w-52"
           />
         </div>
-        <ButtonMedium text="Browse Torisihima" url="#" />
+        <ButtonMedium text="Browse Torisihima" url="/products" />
       </div>
     </a>
 
@@ -87,17 +91,17 @@ import ButtonMedium from "../ButtonMedium.astro";
       >
         <div class="flex md:h-full justify-between w-full md:items-start">
           <Image
-            src={logoSihi}
-            alt="Official Logo of Sihi"
-            class="max-w-32 md:max-w-28 h-fit"
+            src={logoTsurumi}
+            alt="Official Logo of Tsurumi"
+            class="max-w-40 h-fit"
           />
           <Image
-            src={featuredSihi}
-            alt="Featured product of SIHI"
+            src={featuredTsurumi}
+            alt="Featured product of Tsurumi"
             class="max-w-40 md:max-w-52"
           />
         </div>
-        <ButtonMedium text="Browse Sihi" url="#" />
+        <ButtonMedium text="Browse Tsurumi" url="/products" />
       </div>
     </a>
   </div>

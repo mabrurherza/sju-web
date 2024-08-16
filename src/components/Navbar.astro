@@ -54,7 +54,7 @@ import ButtonPrimary from "./ButtonPrimary.astro";
   <a href="/">
     <div class="logo bg-brand-sea-blue flex p-5 rounded-br-3xl">
       <img
-        src="/assets/SJU-logo-light.svg"
+        src="/assets/SJU-vertical-white-vector.svg"
         alt="Logo Sandy Jaya Utama"
         class="pr-3 border-r border-white h-10"
       />
@@ -70,7 +70,7 @@ import ButtonPrimary from "./ButtonPrimary.astro";
   </div>
 
   <ul
-    class="hidden md:flex justify-end items-center h-20 rounded-bl-3xl px-5 ml-5 gap-5 md:bg-white md:bg-opacity-95 flex-1"
+    class="hidden md:flex justify-end items-center h-20 rounded-bl-3xl px-5 ml-5 gap-10 md:bg-white md:bg-opacity-95 flex-1"
   >
     {
       menus.map((menu) => {
@@ -84,10 +84,16 @@ import ButtonPrimary from "./ButtonPrimary.astro";
         );
       })
     }
-    <ButtonPrimary
-      text="Whatsapp"
-      link="whatsapp://send?phone=+6281292780439"
-    />
+    <a href="whatsapp://send?phone=+6287817002400">
+      <button class="relative">
+        <p class="text-[10px] font-medium text-slate-500 pb-1 absolute -top-5">
+          QUICK RESPONSE WA
+        </p>
+        <p class="tabular-nums leading-none text-brand-sea-blue tracking-wider">
+          087817002400
+        </p>
+      </button>
+    </a>
   </ul>
 
   <ul
@@ -105,24 +111,37 @@ import ButtonPrimary from "./ButtonPrimary.astro";
         );
       })
     }
+
+    <li
+      class="menu-item text-white font-thin px-4 py-5 mt-7 mb-5 border-b border-white border-opacity-10 overflow-hidden"
+    >
+      <a href="whatsapp://send?phone=+6287817002400" class="block w-full z-50">
+        <button class="relative">
+          <p class="text-sm pb-1 absolute -top-6">QUICK RESPONSE WA</p>
+          <p class="tabular-nums leading-none tracking-wider text-2xl">
+            0878-1700-2400
+          </p>
+        </button>
+      </a>
+    </li>
   </ul>
-</nav>
 
-<script>
-  const body = document.querySelector("body");
-  const hamburger = document.querySelector(".hamburger");
-  const menu = document.querySelector("#menu");
-  const menuItems = document.querySelectorAll(".menu-item");
+  <script>
+    const body = document.querySelector("body");
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector("#menu");
+    const menuItems = document.querySelectorAll(".menu-item");
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("close");
-    menu.classList.toggle("open");
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("close");
+      menu.classList.toggle("open");
 
-    body.classList.toggle("h-svh");
-    body.classList.toggle("overflow-hidden");
+      body.classList.toggle("h-svh");
+      body.classList.toggle("overflow-hidden");
 
-    menuItems.forEach((item) => {
-      item.classList.toggle("open");
+      menuItems.forEach((item) => {
+        item.classList.toggle("open");
+      });
     });
-  });
-</script>
+  </script>
+</nav>
