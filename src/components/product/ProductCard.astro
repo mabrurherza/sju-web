@@ -4,8 +4,8 @@ const { name, image, slug, brand } = Astro.props;
 ---
 
 <div
-  class="product-card h-fit rounded-lg overflow-hidden border border-blue-100 product-card group"
-  data-brand={brand}
+  class="product-card h-full flex flex-col justify-between rounded-lg overflow-hidden border border-blue-100 group"
+  data-brand={brand.toLowerCase()}
 >
   <a href={`/products/${slug}`}>
     <Image

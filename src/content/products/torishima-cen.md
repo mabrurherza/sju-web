@@ -2,16 +2,16 @@
 layout: ../../layout/ProductLayout.astro
 brand: "Torishima"
 logo: "/src/assets/logo/logo-torishima.png"
-name: "Torishima ETA-N"
+name: "Torishima CEN"
 category: "Centrifugal Pump"
-description: "ETA.N series are industrial pumps of back pull out design according to JIS B 8313"
+description: "CEN series are industrial pumps of back pull out design according to JIS B 8313"
 images: ["/assets/images/product/torishima/torishima-eta-n-1.jpg"]
 stock: true
 catalogue:
 featured: true
 ---
 
-ETA.N series are industrial pumps of back pull out design according to JIS B 8313
+CEN series are industrial pumps of back pull out design according to JIS B 8313
 
 OPERATING RANGE
 Capacity Q Up to 620 m3/hr ( 170 l/s)

@@ -34,10 +34,13 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
   .filter-menu {
     height: 0px;
     overflow: hidden;
-    transition: all 150ms ease-in;
+    border: 1px solid rgba(219, 234, 254, 0);
+    filter: drop-shadow(0 0px 0px rgb(0 0 0 / 0.05));
 
     &.show {
       height: fit-content;
+      border: 1px solid rgba(219, 234, 254, 1);
+      filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
     }
   }
 </style>
@@ -50,10 +53,10 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
         class="flex-1 bg-white border-b border-blue-100 sticky top-[80px] left-0 p-4"
       >
         <div
-          class="flex gap-2 items-center cursor-pointer w-fit"
+          class="flex gap-2 items-center cursor-pointer w-fit border border-blue-100 py-1 px-2 rounded-md"
           id="FilterButton"
         >
-          <p id="filterTitle" class="text-slate-900 leading-3">Semua Brand</p>
+          <p id="filterTitle" class="text-slate-900 leading-3">All Brand</p>
 
           <img
             src="/assets/graphics/ic-chevron-down.svg"
@@ -62,7 +65,7 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
         </div>
         <div
           id="FilterMenu"
-          class="filter-menu bg-white flex items-center border-b border-blue-100 w-full absolute top-14 left-0 drop-shadow-sm"
+          class="filter-menu bg-white flex items-center border-b border-blue-100 w-full absolute top-14 left-0"
         >
           <ul class="p-4 flex flex-wrap gap-5">
             <li
@@ -75,7 +78,7 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
               brands.map((brand) => {
                 return (
                   <li
-                    data-filter={brand}
+                    data-filter={brand.toLowerCase()}
                     class="filter-button cursor-pointer hover:text-brand-sea-blue border border-blue-100 py-1 px-2 rounded-md"
                   >
                     {brand}
@@ -105,6 +108,18 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
 </MainLayout>
 
 <script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const brandFilter = urlParams.get("brand");
+
+  if (brandFilter) {
+    const products = document.querySelectorAll(".product-card");
+    products.forEach((product) => {
+      if (product.getAttribute("data-brand") !== brandFilter) {
+        product.style.display = "none";
+      }
+    });
+  }
+
   const FilterButton = document.querySelector("#FilterButton");
 
   FilterButton.addEventListener("click", () => {
@@ -133,12 +148,14 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
   filterButtons.forEach((item) => {
     item.addEventListener("click", function () {
       const brand = this.getAttribute("data-filter");
+      const brandName = this.textContent;
+      console.log(brandName);
 
       const url = new URL(window.location.href);
       url.searchParams.set("brand", brand);
       window.history.pushState({}, "", url);
 
-      filterTitle.textContent = brand;
+      filterTitle.textContent = brandName;
 
       updateProductListing(brand);
 
@@ -146,12 +163,4 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
       document.querySelector(".chevronDown").classList.toggle("rotate-180");
     });
   });
-
-  // const handleFilterClick = function (event) {
-  //   alert("filter clicked");
-  // };
-
-  // filterButtons.forEach((list) => {
-  //   list.addEventListener("click", handleFilterClick);
-  // });
 </script>

@@ -7,8 +7,8 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://sju-webdev.netlify.app/',
+  site: 'https://www.sandyjaya.co.id/',
   integrations: [tailwind({
     applyBaseStyles: false
-  }), react(), mdx(), sitemap()]
+  }), react(), mdx(), sitemap()],
 });

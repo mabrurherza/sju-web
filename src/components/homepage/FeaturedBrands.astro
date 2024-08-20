@@ -21,8 +21,7 @@ console.log(logoEbara.width > logoEbara.height ? "true" : "false");
   <h3 class="subtitle">Featured Brands</h3>
 
   <div class="flex flex-col md:flex-row gap-5 justify-between flex-wrap">
-    <!-- card EBARA -->
-    <a href="/products/" class="flex-1 md:max-w-[420px]">
+    <a href="/products?brand=ebara" class="flex-1 md:max-w-[420px]">
       <div
         class="bg-blue-50 hover:bg-blue-100 border border-blue-100 p-5 rounded-md flex flex-col gap-5 group"
       >
@@ -39,12 +38,11 @@ console.log(logoEbara.width > logoEbara.height ? "true" : "false");
             class="max-w-40 md:max-w-52"
           />
         </div>
-        <ButtonMedium text="Browse Ebara" url="/products" />
+        <ButtonMedium text="Browse Ebara" url="/products?brand=ebara" />
       </div>
     </a>
 
-    <!-- Card Grundfos -->
-    <a href="/products/" class="flex-1 md:max-w-[420px]">
+    <a href="/products?brand=grundfos" class="flex-1 md:max-w-[420px]">
       <div
         class="bg-blue-50 hover:bg-blue-100 border border-blue-100 p-5 rounded-md flex flex-col gap-5 group"
       >
@@ -61,11 +59,11 @@ console.log(logoEbara.width > logoEbara.height ? "true" : "false");
           />
         </div>
 
-        <ButtonMedium text="Browse Grundfos" url="/products" />
+        <ButtonMedium text="Browse Grundfos" url="/products?brand=grundfos" />
       </div>
     </a>
 
-    <a href="" class="flex-1 md:max-w-[420px]">
+    <a href="/products?brand=torishima" class="flex-1 md:max-w-[420px]">
       <div
         class="bg-blue-50 hover:bg-blue-100 border border-blue-100 p-5 rounded-md flex flex-col gap-5 group"
       >
@@ -81,11 +79,14 @@ console.log(logoEbara.width > logoEbara.height ? "true" : "false");
             class="max-w-40 md:max-w-52"
           />
         </div>
-        <ButtonMedium text="Browse Torisihima" url="/products" />
+        <ButtonMedium
+          text="Browse Torisihima"
+          url="/products?brand=torishima"
+        />
       </div>
     </a>
 
-    <a href="/products/" class="flex-1 md:max-w-[420px]">
+    <a href="/products?brand=tsurumi" class="flex-1 md:max-w-[420px]">
       <div
         class="bg-blue-50 hover:bg-blue-100 border border-blue-100 p-5 rounded-md flex flex-col gap-5 group"
       >
@@ -101,7 +102,7 @@ console.log(logoEbara.width > logoEbara.height ? "true" : "false");
             class="max-w-40 md:max-w-52"
           />
         </div>
-        <ButtonMedium text="Browse Tsurumi" url="/products" />
+        <ButtonMedium text="Browse Tsurumi" url="/products?brand=tsurumi" />
       </div>
     </a>
   </div>

@@ -34,6 +34,12 @@ function getBrandLogo(brand) {
       return "/assets/graphics/logo/logo-isuzu.png";
     case "FG Wilson":
       return "/assets/graphics/logo/logo-fgwilson.png";
+    case "CMP":
+      return "/assets/graphics/logo/logo-cmp.png";
+    case "Marelli":
+      return "/assets/graphics/logo/logo-marellimotori.png";
+    case "Leroy Somer":
+      return "/assets/graphics/logo/logo-leroysomer.png";
     default:
       return "/src/assets/logo/brands/logo-fallback.png"; // Fallback logo
   }
@@ -80,11 +86,10 @@ function getBrandLogo(brand) {
       </div>
       <div class="flex flex-col justify-between flex-1">
         <div class="flex flex-col gap-5">
-          <Image
+          <img
             src={getBrandLogo(frontmatter.brand)}
             alt={`Logo of ${frontmatter.brand}`}
-            width={96}
-            height={96}
+            class="max-w-36 w-full object-cover"
           />
           <div class="flex flex-col md:flex-row-reverse justify-between">
             <p

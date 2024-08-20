@@ -85,13 +85,17 @@ import ButtonPrimary from "./ButtonPrimary.astro";
       })
     }
     <a href="whatsapp://send?phone=+6287817002400">
-      <button class="relative">
+      <button class="relative group">
         <p class="text-[10px] font-medium text-slate-500 pb-1 absolute -top-5">
           QUICK RESPONSE WA
         </p>
         <p class="tabular-nums leading-none text-brand-sea-blue tracking-wider">
           087817002400
         </p>
+        <div
+          class="h-[2px] transition-all w-0 group-hover:w-full bg-brand-sea-blue"
+        >
+        </div>
       </button>
     </a>
   </ul>

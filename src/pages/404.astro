@@ -19,10 +19,17 @@ const headcontent = {
       />
       <p class="text-white text-xl">
         Halaman yang Anda tuju tidak ada. <br />
-        <a href="/" class="underline hover:text-brand-sky-blue"
-          >Kembali ke halaman depan</a
+        <a id="go-back" href="/" class="underline hover:text-brand-sky-blue"
+          >Kembali ke halaman sebelumnya</a
         >
       </p>
     </div>
   </main>
 </MainLayout>
+
+<script>
+  document.getElementById("go-back").addEventListener("click", (event) => {
+    event.preventDefault();
+    history.back();
+  });
+</script>
