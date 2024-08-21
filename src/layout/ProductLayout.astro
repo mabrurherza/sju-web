@@ -5,6 +5,7 @@ import SingleProductImage from "../components/SingleProductImage.astro";
 import MultiProductImages from "../components/MultiProductImages.astro";
 import Breadcrumb from "../components/product/Breadcrumb.astro";
 import ButtonPrimary from "../components/ButtonPrimary.astro";
+import IconDownloadPDF from "../components/icon/IconDownloadPDF.astro";
 
 function getBrandLogo(brand) {
   switch (brand) {
@@ -89,7 +90,7 @@ function getBrandLogo(brand) {
           <img
             src={getBrandLogo(frontmatter.brand)}
             alt={`Logo of ${frontmatter.brand}`}
-            class="max-w-36 w-full object-cover"
+            class="logo-brand w-full object-cover"
           />
           <div class="flex flex-col md:flex-row-reverse justify-between">
             <p
@@ -101,6 +102,25 @@ function getBrandLogo(brand) {
             <h4 class="text-3xl" id="productName">{frontmatter.name}</h4>
           </div>
           <p>{frontmatter.description}</p>
+          {
+            frontmatter.catalogue ? (
+              <div class="w-fit">
+                <a
+                  href={frontmatter.catalogue}
+                  class="text-sm text-brand-sea-blue flex gap-2 hover:text-blue-900 hover:underline"
+                  download
+                >
+                  <div class="w-7">
+                    <IconDownloadPDF color="neutral" />
+                  </div>
+
+                  <p>Download PDF catalogue</p>
+                </a>
+              </div>
+            ) : (
+              ""
+            )
+          }
         </div>
         <div class="flex flex-col gap-5 mt-10">
           <div class="flex justify-between items-center">
@@ -173,9 +193,46 @@ function getBrandLogo(brand) {
       </article>
     </div>
   </section>
+  <div class="max-w-40"></div>
+  <div class="max-w-20"></div>
 </main>
 
 <script>
+  function addWidthClass() {
+    // Select the img element
+    const logo = document.querySelector(".logo-brand") as HTMLImageElement;
+    console.log(logo);
+
+    // Check if the img element exists
+    if (logo) {
+      // Get the width and height of the img element
+      const width = logo.offsetWidth;
+      const height = logo.offsetHeight;
+      console.log(`width: ${width}`);
+      console.log(`height: ${height}`);
+
+      console.log(width > height);
+
+      // Compare and add the class
+      if (width > height) {
+        // Add max-w-40 class if width is greater than height
+        logo.classList.add("max-w-40");
+        // Remove any existing max-w-20 class
+        logo.classList.remove("max-w-20");
+      } else {
+        // Add max-w-20 class if width is less than or equal to height
+        logo.classList.add("max-w-20");
+        // Remove any existing max-w-40 class
+        logo.classList.remove("max-w-40");
+      }
+    } else {
+      console.log("No img element found.");
+    }
+  }
+
+  // Call the function when the document is ready (e.g., after DOM content has been loaded)
+  document.addEventListener("DOMContentLoaded", addWidthClass);
+
   const MailButton = document.getElementById("MailButton");
   MailButton.addEventListener("click", function () {
     event.preventDefault();

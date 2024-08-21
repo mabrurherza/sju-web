@@ -11,6 +11,6 @@ images:
     "/assets/images/product/torishima/torishima-cal-1.jpg",
   ]
 stock: true
-catalogue:
+catalogue: "/assets/pdf/Torishima-catalogue-CAL-CAR.pdf"
 featured: false
 ---

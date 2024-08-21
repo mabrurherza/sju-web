@@ -1,0 +1,52 @@
+---
+const { color } = Astro.props;
+
+let fillClass;
+switch (color) {
+  case "brand":
+    fillClass = "fill-brand-sea-blue";
+    break;
+  case "neutral":
+    fillClass = "fill-slate-500";
+    break;
+  default:
+    fillClass = "fill-slate-500";
+    break;
+}
+---
+
+<svg
+  width="100%"
+  height="100%"
+  viewBox="0 0 24 24"
+  version="1.1"
+  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+  class={fillClass}
+>
+  <g transform="matrix(1,0,0,1,-2464.82,-429.556)">
+    <g transform="matrix(1,0,0,1,-0.927786,-0.204373)">
+      <g transform="matrix(1,0,0,1,0,148.623)">
+        <g transform="matrix(1.15464,0,0,1.15464,-379.473,-42.7363)">
+          <rect
+            x="2464.15"
+            y="280.497"
+            width="20.786"
+            height="20.786"
+            style="fill:none;"></rect>
+        </g>
+        <g transform="matrix(0.840608,0,0,0.840608,2467.66,283.051)">
+          <path
+            d="M6,22C5.45,22 4.979,21.804 4.588,21.413C4.196,21.021 4,20.55 4,20L4,4C4,3.45 4.196,2.979 4.588,2.588C4.979,2.196 5.45,2 6,2L14,2L20,8L20,20C20,20.55 19.804,21.021 19.412,21.413C19.021,21.804 18.55,22 18,22L6,22ZM6,4L6,20L18,20L18,9L13,9L13,4L6,4Z"
+          ></path>
+        </g>
+        <g
+          transform="matrix(-0.840608,1.02945e-16,-1.02945e-16,-0.840608,2487.83,308.269)"
+        >
+          <path
+            d="M11,19L13,19L13,14.825L14.6,16.425L16,15L12,11L8,15L9.425,16.4L11,14.825L11,19Z"
+          ></path>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

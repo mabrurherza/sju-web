@@ -11,6 +11,8 @@ images:
     "/assets/images/product/torishima/torishima-cas-1.jpg",
   ]
 stock: true
-catalogue:
+catalogue: "/assets/pdf/Torishima-catalogue-CAM-CAS.pdf"
 featured: false
 ---
+
+Details are not available.
