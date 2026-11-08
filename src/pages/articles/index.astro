@@ -1,0 +1,46 @@
+---
+import MainLayout from "../../layout/MainLayout.astro";
+import Breadcrumb from "../../components/product/Breadcrumb.astro";
+import { getCollection, getEntry } from "astro:content";
+import ProductCard from "../../components/product/ProductCard.astro";
+
+const allProducts = await getCollection("products");
+
+const brands = [...new Set(allProducts.map((item) => item.data.brand))];
+---
+
+<MainLayout>
+  <Breadcrumb />
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Articles</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        (() => {
+          const items = [];
+          for (let i = 0; i < 5; i++) {
+            items.push(
+              <div>
+                <p>{i + 1}</p>
+              </div>
+            );
+          }
+          return items;
+        })()
+      }
+    </div>
+
+    {
+      () => {
+        const items = [];
+        for (let i = 0; i < 5; i++) {
+          items.push(
+            <div>
+              <p>{i + 10}</p>
+            </div>
+          );
+        }
+        return items;
+      }
+    }
+  </div>
+</MainLayout>
