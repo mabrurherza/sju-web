@@ -96,7 +96,7 @@ const brands = [...new Set(allProducts.map((item) => item.data.brand))];
               <ProductCard
                 name={p.data.name}
                 image={p.data.images}
-                slug={p.slug}
+                slug={p.id || p.slug}
                 brand={p.data.brand}
               />
             );

@@ -37,7 +37,7 @@ const headcontent = {
     {
       products.map((product) => (
         <li>
-          <a href={`/products/${product.slug}`}>{product.data.name}</a>
+          <a href={`/products/${product.id || product.slug}`}>{product.data.name}</a>
         </li>
       ))
     }
