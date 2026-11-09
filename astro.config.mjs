@@ -8,7 +8,7 @@ import { d1, r2 } from "@emdash-cms/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://www.sandyjaya.co.id/",
+	// site: "https://www.sandyjaya.co.id/",
 	output: "server",
 	adapter: cloudflare(),
 	integrations: [
